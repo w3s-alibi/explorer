@@ -1,6 +1,7 @@
 import Icon from '../Icon';
 import React from 'react';
 import classNames from 'classnames';
+import Dnd from '../Dnd';
 
 export default function FileUploadInput(props: {
   onFileChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -47,5 +48,8 @@ export default function FileUploadInput(props: {
         )}
       </div>
     </div>
+    // <div>
+    //   {/* <Dnd onDataLoaded={() => {}}/> */}
+    // </div>
   );
 }

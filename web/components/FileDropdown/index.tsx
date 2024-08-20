@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react';
 import Icon from '../Icon';
+import Dnd from '../Dnd';
 
 export function FileDropdown(props: {
   files: File[];
@@ -22,5 +23,6 @@ export function FileDropdown(props: {
         onClick={() => props.onDelete(0)}
       />
     </div>
+    // <Dnd onDataLoaded={() => {}} />
   );
 }

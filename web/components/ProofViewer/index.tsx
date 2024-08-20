@@ -15,6 +15,7 @@ import { uploadFileToIpfs } from '../../store/upload';
 import { setIPFSProof } from '../../store/proofs';
 import { EXPLORER_URL } from '../../utils/constants';
 import copy from 'copy-to-clipboard';
+import Map from '../Map';
 
 export default function ProofViewer(props: {
   file: File;
@@ -64,6 +65,9 @@ export default function ProofViewer(props: {
           <TabLabel onClick={() => setTab('recv')} active={tab === 'recv'}>
             Recv
           </TabLabel>
+          <TabLabel onClick={() => setTab('map')} active={tab === 'map'}>
+            Map
+          </TabLabel>
           <div className="flex flex-row flex-grow items-center justify-end">
             <button className="button" onClick={onClickShare}>
               Share
@@ -97,6 +101,23 @@ export default function ProofViewer(props: {
             value={props.verifiedProof.recv}
             readOnly
           />
+        )}
+        {tab === 'recv' && (
+          <div className="w-full h-full">
+            <Map
+              data={[
+                { lat: 52.4804112, lon: 13.4940396, time1: 1724149122, time2: 1724149172 },
+                { lat: 52.4504112, lon: 12.4940396, time1: 1724149122, time2: 1724149172 },
+                { lat: 52.4204112, lon: 11.940396, time1: 1724149122, time2: 1724149172 }
+              ]}
+              onReset={() => 0}
+            />
+          </div>
+          // <textarea
+          //   className="w-full resize-none bg-slate-100 text-slate-800 border p-2 text-xs break-all h-full outline-none font-mono"
+          //   value={props.verifiedProof.recv}
+          //   readOnly
+          // />
         )}
       </div>
     </div>

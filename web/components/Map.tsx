@@ -1,6 +1,7 @@
+import React, { useState } from "react"
 import { MapContainer, TileLayer, Polyline, Marker, Tooltip } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import React, { useState } from "react"
+
 
 interface Coord {
   lat: number;
@@ -30,30 +31,31 @@ const Map = ({ data, onReset }: { data: Coord[], onReset: () => {}}) => {
           zoom={13}
           style={{ height: '100vh', width: '100%', margin: 'none', padding: 'none' }}
       >
-        <TileLayer
+        <>
+        {/* </> */}
+        {/* <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        {data.map((coord, index) => (
+        /> */}
+        {/* {data.map((coord, index) => (
             <Marker key={index} position={coord}>
-              {/* @ts-ignore */}
+              @ts-ignore
               <Tooltip permanent>
                 {formatTimestamp(coord.time1)}
               </Tooltip>
             </Marker>
-        ))}
-        {data.slice(0, -1).map((coord, index) => (
+        ))} */}
+        {/* {data.slice(0, -1).map((coord, index) => (
             <Polyline
                 key={index}
                 positions={[coord, data[index + 1]]}
-                /* @ts-ignore */
                 color={hoveredSegment === index ? 'red' : 'blue'}
                 weight={3}
                 onMouseOver={() => setHoveredSegment(index)}
                 onMouseOut={() => setHoveredSegment(-1)}
             />
-        ))}
+        ))} */}
 
-        <button
+        {/* <button
           className="bg-white hover:bg-gray-100 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
           style={{ position: "absolute", top: 20, right: 20, zIndex: 1000, width: 40, height: 40, padding: 0, display: "flex", alignItems: "center", justifyContent: "center", color: "black" }}
           onClick={() => onReset()}
@@ -61,8 +63,10 @@ const Map = ({ data, onReset }: { data: Coord[], onReset: () => {}}) => {
           <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#000000" className="size-6">
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
           </svg>
-        </button>
+        </button> */}
+      </>
       </MapContainer>
+      
   );
 };
 
