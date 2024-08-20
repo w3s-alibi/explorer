@@ -6,6 +6,7 @@ import ProofViewer from '../../components/ProofViewer';
 import { Attestation, Proof as VerifiedProof } from '../../utils/types/types';
 import { FileDropdown } from '../../components/FileDropdown';
 import { PubkeyInput } from '../PubkeyInput';
+import Map from '../../components/Map';
 
 export default function FileDrop(): ReactElement {
   const dispatch = useDispatch();
@@ -102,6 +103,12 @@ export default function FileDrop(): ReactElement {
     },
     [rawJson, onVerify],
   );
+
+  if (verifiedProof)
+    console.log("proof:", verifiedProof);
+    // return (
+    //   <Map data={verifiedProof} onReset={() => {}} />
+    // );
 
   return (
     <div className="flex flex-col items-center w-full h-screen m-auto gap-2">
